@@ -1,33 +1,19 @@
-## clean machine
-brew list -1 | xargs brew rm
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+## create docker machine
+docker-machine create --driver virtualbox default
+eval $(docker-machine env)
+docker-machine ls
+#docker-machine stop default
+docker-machine start default
 
+## this is only necessary if your company is using a different SSL CA 
+docker-machine ssh default 'sudo mkdir /var/lib/boot2docker/certs'
+docker-machine scp ca.pem default:
+docker-machine ssh default 'sudo mv ca.pem /var/lib/boot2docker/certs/'
+docker-machine restart default 
 
-## pre requirements
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew doctor
-
-brew install git
-brew install python
-brew install docker
-
-
-brew tap phinze/cask
-brew install brew-cask
-
-brew cask install virtualbox
-
-
-echo Install Dev Apps
-brew cask install --appdir="/Applications" github-desktop
-brew cask install --appdir="/Applications" visual-studio-code
-
-
-docker run hello-world
-
-
-
-
+## remove docker machine
+docker-machine rm default
+eval $(docker-machine env -u)
 
 ## List Docker CLI commands
 docker

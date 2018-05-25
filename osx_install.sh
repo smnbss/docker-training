@@ -2,7 +2,6 @@
 brew list -1 | xargs brew rm
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 
-
 ## pre requirements
 
 echo Install Homebrew
@@ -22,6 +21,11 @@ brew cask install --appdir="/Applications" visual-studio-code
 echo Install Docker Stuff
 brew install docker
 brew cask install virtualbox
+
+echo Setup Docker
+docker-machine create --driver virtualbox default
+docker-machine stop default
+docker-machine ls
 
 # cleanup
 brew cleanup --force
