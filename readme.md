@@ -26,7 +26,7 @@ eval $(docker-machine env -u)
 
 
 ## Run Docker
-docker run -p 4000:4000 docker-training
+docker run -p 4000:80 docker-training
 
 
 
