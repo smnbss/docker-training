@@ -1,7 +1,9 @@
 ## create docker machine
+`
 docker-machine create --driver virtualbox default
 eval $(docker-machine env)
 docker-machine ls
+`
 #docker-machine stop default
 docker-machine start default
 
