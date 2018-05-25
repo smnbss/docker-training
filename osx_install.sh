@@ -15,6 +15,7 @@ brew install python
 
 echo Install Dev Apps
 brew cask install --appdir="/Applications" authy
+brew cask install --appdir="/Applications" pycharm
 brew cask install --appdir="/Applications" github
 brew cask install --appdir="/Applications" visual-studio-code
 

@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  docker-training:
+    image: docker-training
+    build: .
+    ports:
+      - 4000:4000

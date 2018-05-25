@@ -1,20 +1,29 @@
-# Use an official Python runtime as a parent image
-FROM python:2.7-slim
 
-# Set the working directory to /app
+# Python support can be specified down to the minor or micro version
+# (e.g. 3.6 or 3.6.3).
+# OS Support also exists for jessie & stretch (slim and full).
+# See https://hub.docker.com/r/library/python/ for all supported Python
+# tags from Docker Hub.
+FROM python:alpine
+
+# If you prefer miniconda:
+#FROM continuumio/miniconda3
+
+LABEL Name=docker-training Version=0.0.1
+EXPOSE 4000
+
 WORKDIR /app
-
-# Copy the current directory contents into the container at /app
 ADD . /app
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
+# Using pip:
+RUN python3 -m pip install -r requirements.txt
+CMD ["python3", "app.py"]
 
-# Make port 80 available to the world outside this container
-EXPOSE 80
+# Using pipenv:
+#RUN python3 -m pip install pipenv
+#RUN pipenv install --ignore-pipfile
+#CMD ["pipenv", "run", "python3", "-m", "docker-training"]
 
-# Define environment variable
-ENV NAME World
-
-# Run app.py when the container launches
-CMD ["python", "app.py"]
+# Using miniconda (make sure to replace 'myenv' w/ your environment name):
+#RUN conda env create -f environment.yml
+#CMD /bin/bash -c "source activate myenv && python3 -m docker-training"

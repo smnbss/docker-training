@@ -24,6 +24,12 @@ docker-machine rm default
 eval $(docker-machine env -u)
 ~~~~
 
+
+## Run Docker
+docker run -p 4000:4000 docker-training
+
+
+
 ## List Docker CLI commands
 ~~~~
 docker

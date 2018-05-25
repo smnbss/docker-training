@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  docker-training:
+    image: docker-training
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+        - 4000:4000
