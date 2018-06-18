@@ -15,9 +15,11 @@ brew install python
 
 echo Install Dev Apps
 brew cask install --appdir="/Applications" authy
-brew cask install --appdir="/Applications" pycharm
 brew cask install --appdir="/Applications" github
+brew cask install --appdir="/Applications" pycharm
+brew cask install --appdir="/Applications" phpstorm
 brew cask install --appdir="/Applications" visual-studio-code
+brew cask install --appdir="/Applications" sequel-pro
 
 echo Install Docker Stuff
 brew install docker
