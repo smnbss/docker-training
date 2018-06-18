@@ -12,6 +12,9 @@ brew doctor
 echo Install Dev Tools
 brew install git
 brew install python
+brew cask install virtualbox
+brew cask install vagrant
+brew cask install vagrant-manager
 
 echo Install Dev Apps
 brew cask install --appdir="/Applications" authy
@@ -23,7 +26,6 @@ brew cask install --appdir="/Applications" sequel-pro
 
 echo Install Docker Stuff
 brew install docker
-brew cask install virtualbox
 
 echo Setup Docker
 docker-machine create --driver virtualbox default
